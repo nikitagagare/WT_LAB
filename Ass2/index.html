@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#menu">MENU</a></li> 
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#order">ORDER</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        let backgrounds = [
+    'Background1.png',
+    'demo.jpg',
+    'demo2.avif'
+];
+let currentBackground = 0;
+
+function changeBackground() {
+    currentBackground = (currentBackground + 1) % backgrounds.length;
+    document.getElementById('home').style.backgroundImage = `url(${backgrounds[currentBackground]})`;
+}
+
+// Change background every 5 seconds
+setInterval(changeBackground, 5000);
+    </script>
+
+    
+    <div id="home" class="section home">
+        <div class="content">
+            <h1>WELCOME TO FOODIE</h1>
+        </div>
+    </div>
+
+    
+    <div id="menu" class="section menu">
+        <div class="content">
+            <h1>MENU</h1>
+            <div class="menu-table">
+                <div class="menu-item">
+                    <img src="coffe.jpg" alt="coffee">
+                    <div class="menu-item-info">
+                        <h3>Coffee</h3>
+                        <p>60.00</p>
+                        <button class="add-to-cart-btn">Order</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="green salad.jpg" alt="Green salad">
+                    <div class="menu-item-info">
+                        <h3>Green salad</h3>
+                        <p>50.00</p>
+                        <button class="add-to-cart-btn">Order</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="manchurian.jpg" alt="Manchurian">
+                    <div class="menu-item-info">
+                        <h3>Manchurian</h3>
+                        <p>125.00</p>
+                        <button class="add-to-cart-btn">Order</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="kaju curry.jpg" alt="kaju curry">
+                    <div class="menu-item-info">
+                        <h3>Kaju curry</h3>
+                        <p>130.00</p>
+                        <button class="add-to-cart-btn">Order</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="paneer paratha.jpg" alt="paneer paratha">
+                    <div class="menu-item-info">
+                        <h3>paneer paratha</h3>
+                        <p>50.00</p>
+                        <button class="add-to-cart-btn">Order</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="tomato soup.jpg" alt="tomato soup">
+                    <div class="menu-item-info">
+                        <h3>tomato soup</h3>
+                        <p>80.00</p>
+                        <button class="add-to-cart-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="about" class="section about">
+        <div class="content">
+            <h2>ABOUT</h2>
+            <p>WELCOME TO FOODIE</p>
+            <p> where food meets comfort! Our hotel is a haven for food lovers, 
+            offering an unforgettable culinary experience alongside top-tier hospitality.
+            From locally inspired dishes to gourmet meals, each bite is crafted with passion. 
+            Whether you're here for a quick getaway or a foodie retreat, we promise to delight your 
+            taste buds and make every stay a memorable one. 
+            </p>
+        </div>
+    </div>
+
+    <div id="order" class="section order">
+        <div class="content">
+            <h2>ORDER</h2>
+            <div class="order-details">
+                
+            </div>
+
+            <div class="Order-form">
+                
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Food Name:</label>
+                        <input type="text" id="food " name="food" placeholder="Enter your Choice" required>
+                    </div>
+
+
+                    <button type="submit" class="submit-btn">Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div id="contact" class="section contact">
+        <div class="content">
+            <h2>CONTACT</h2>
+            <div class="contact-details">
+                
+                <p><strong>Mobile No:</strong> <a href="tel:+1234567890">+911234567890</a></p>
+            </div>
+
+            <div class="contact-form">
+                
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Order form validation
+        function validateOrderForm() {
+            let name = document.getElementById("name").value;
+            let food = document.getElementById("food").value;
+            if (name.trim() === "" || food.trim() === "") {
+                alert("Please fill out all fields.");
+                return false;
+            }
+            return true;
+        }
+
+        // Contact form validation
+        function validateContactForm() {
+            let name = document.getElementById("contactName").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
+                alert("Please fill out all fields.");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+
+
+</body>
+</html>
